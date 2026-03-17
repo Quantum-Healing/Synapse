@@ -4,6 +4,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useApp } from '../../context/AppContext';
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -28,6 +29,10 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const { user, requestSignIn, signOut } = useAuth();
+  const { syncStatus } = useApp();
+
+  const syncLabel = { loading: 'Loading…', saving: 'Saving…', error: 'Sync error', synced: 'Synced' }[syncStatus];
+  const syncColor = { loading: 'text-slate-400', saving: 'text-amber-400', error: 'text-red-400', synced: 'text-emerald-400' }[syncStatus];
 
   return (
     <aside
@@ -79,7 +84,9 @@ export default function Sidebar() {
               {!collapsed && (
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-slate-700 truncate">{user.name}</p>
-                  <p className="text-[10px] text-slate-400 truncate">{user.email}</p>
+                  <p className={`text-[10px] truncate ${syncStatus !== 'idle' ? syncColor : 'text-slate-400'}`}>
+                    {syncStatus !== 'idle' ? syncLabel : user.email}
+                  </p>
                 </div>
               )}
               <button
