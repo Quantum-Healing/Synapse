@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import { AppProvider } from './context/AppContext';
 import Sidebar from './components/layout/Sidebar';
 import HomePage from './pages/HomePage';
@@ -19,6 +20,7 @@ function Layout({ children }) {
 
 export default function App() {
   return (
+    <AuthProvider>
     <AppProvider>
       <BrowserRouter>
         <Routes>
@@ -34,5 +36,6 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </AppProvider>
+    </AuthProvider>
   );
 }
