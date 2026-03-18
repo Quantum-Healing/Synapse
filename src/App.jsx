@@ -8,6 +8,7 @@ import DeckDetailPage from './pages/DeckDetailPage';
 import StudyPage from './pages/StudyPage';
 import QuizPage from './pages/QuizPage';
 import NotesPage from './pages/NotesPage';
+import CalendarPage from './pages/CalendarPage';
 
 function Layout({ children }) {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/flashcards" element={<Layout><FlashcardsPage /></Layout>} />
           <Route path="/flashcards/:id" element={<Layout><DeckDetailPage /></Layout>} />
           <Route path="/notes" element={<Layout><NotesPage /></Layout>} />
+          <Route path="/calendar" element={<Layout><CalendarPage /></Layout>} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

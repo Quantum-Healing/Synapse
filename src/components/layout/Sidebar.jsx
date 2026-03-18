@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import {
-  LayoutDashboard, BookOpen, StickyNote, ChevronLeft, ChevronRight, Brain, LogOut
+  LayoutDashboard, BookOpen, StickyNote, Calendar, ChevronLeft, ChevronRight, Brain, LogOut
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
@@ -23,6 +23,7 @@ const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', exact: true },
   { to: '/flashcards', icon: BookOpen, label: 'Flashcards' },
   { to: '/notes', icon: StickyNote, label: 'Notes' },
+  { to: '/calendar', icon: Calendar, label: 'Calendar' },
 ];
 
 export default function Sidebar() {
