@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Calendar, ChevronLeft, ChevronRight, ExternalLink, RefreshCw } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
-const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '138966607934-c1vb8o9irseogk6krovesrkhor84oihh.apps.googleusercontent.com';
 
 export default function CalendarWidget() {
   const { accessToken, requestSignIn } = useAuth();

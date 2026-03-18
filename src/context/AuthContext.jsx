@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
 
-const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || '138966607934-c1vb8o9irseogk6krovesrkhor84oihh.apps.googleusercontent.com';
 
 // Scopes: profile for sign-in, drive.appdata for sync, calendar for widget
 const SCOPES = [
